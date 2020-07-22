@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="notifications_channel_names">
+        <item>channel1</item>
+        <item>channel2</item>
+        <item>channel3</item>
+    </array>
+    <array name="notifications_channel_description">
+        <item>channel1 description</item>
+        <item>channel2 description</item>
+        <item>channel3 description</item>
+    </array>
+
+    <array name="languages">
+        <item>العربية</item>
+        <item>ُEnglish</item>
+    </array>
+    <array name="languages_values">
+        <item>ar</item>
+        <item>en</item>
+    </array>
+</resources>

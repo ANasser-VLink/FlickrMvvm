@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ibase_gray">#B4B4B4</color>
+    <color name="ibase_gray1">#464646</color>
+    <color name="ibase_green">#86C487</color>
+    <color name="ibase_green1">#007C02</color>
+    <color name="ibase_red">#FFAFAD</color>
+    <color name="ibase_red1">#DF221D</color>
+</resources>

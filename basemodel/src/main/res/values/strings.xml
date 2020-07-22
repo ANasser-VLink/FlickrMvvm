@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">BasePropject</string>
+    <string name="google_map_app_not_found">google_map_app_not_found</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title1">Home</string>
+    <string name="ibase_retry">Retry</string>
+    <string name="ibase_check_your_mobile_data_or_wi_fi">check your mobile data or WI-FI</string>
+    <string name="ibase_no_internet_connection">No internet connection</string>
+    <string name="ibase_server_cannot_be_reached">Server cannot be reached</string>
+    <string name="ibase_please_try_again_later">Please try again later</string>
+    <string name="ibase_no_results_found">No results found</string>
+    <string name="ibase_loading">Loading</string>
+
+    <string name="ibase_ok">OK</string>
+    <string name="ibase_no_network_available">No network available, please check your WiFi or Data connection</string>
+    <string name="ibase_something_went_wrong">Something went wrong</string>
+    <string name="ibase_unexpected_error_happened">Unexpected Error Happened</string>
+    <string name="ibase_cannot_reach_the_server">Cannot reach the server try again later</string>
+    <string name="ibase_server_error">Server Error</string>
+    <string name="ibase_all_fields_are_required">All fields are required</string>
+    <string name="ibase_email_not_valid">Email not valid</string>
+    <string name="ibase_password_should_be_at_least_6_charachter">Password should be at least 6 characters</string>
+    <string name="ibase_you_are_offline">You are offline</string>
+    <string name="ibase_connected">Connected</string>
+    <string name="ibase_important">Important</string>
+    <string name="name_is_short">Name is too short</string>
+    <string name="you_cannot_user_this_permission"><![CDATA[\"You can not use this Feature without allowing this Permission\n\nPlease turn on permissions at [Setting] > [Permission]\"]]></string>
+</resources>
