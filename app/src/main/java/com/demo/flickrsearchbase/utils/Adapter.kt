@@ -2,18 +2,16 @@ package com.demo.flickrsearchbase.utils
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import com.demo.flickrsearchbase.ui.viewmodel.ImageSearchViewModel
 import com.demo.flickrsearchbase.R
 import com.demo.flickrsearchbase.pojo.Photo
+import com.demo.flickrsearchbase.ui.viewmodel.SearchViewModel
 import com.subwilven.basemodel.project_base.base.adapters.BaseAdapter
-import com.subwilven.basemodel.project_base.base.adapters.BaseListAdapter
 import com.subwilven.basemodel.project_base.base.adapters.BaseViewHolder
 import com.subwilven.basemodel.project_base.utils.extentions.loadImage
 import kotlinx.android.synthetic.main.row_item_layout.*
 
 
-class Adapter(val mViewModel: ImageSearchViewModel) : BaseAdapter<Photo, Adapter.ViewHolder>() {
+class Adapter(val mViewModel: SearchViewModel) : BaseAdapter<Photo, Adapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent, R.layout.row_item_layout)

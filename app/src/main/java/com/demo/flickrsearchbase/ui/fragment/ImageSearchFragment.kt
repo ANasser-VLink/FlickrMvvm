@@ -3,23 +3,21 @@ package com.demo.flickrsearchbase.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import com.demo.flickrsearchbase.ui.viewmodel.ImageSearchViewModel
 import com.demo.flickrsearchbase.R
-import com.demo.flickrsearchbase.pojo.Photo
+import com.demo.flickrsearchbase.ui.viewmodel.SearchViewModel
 import com.demo.flickrsearchbase.utils.Adapter
 import com.demo.flickrsearchbase.utils.OWNER_KEY
-import com.demo.flickrsearchbase.utils.PER_PAGE
 import com.subwilven.basemodel.project_base.base.fragments.BaseSuperFragment
 import com.subwilven.basemodel.project_base.views.MyRecyclerView
 import kotlinx.android.synthetic.main.image_search_fragment.*
 
-class ImageSearchFragment : BaseSuperFragment<ImageSearchViewModel>() {
+class ImageSearchFragment : BaseSuperFragment<SearchViewModel>() {
 
     override val fragmentTag = "imgSearch"
     private var mAdapter: Adapter? = null
     private var mRecyclerView: MyRecyclerView? = null
     override val layoutId = R.layout.image_search_fragment
-    override val viewModelClass = ImageSearchViewModel::class.java
+    override val viewModelClass = SearchViewModel::class.java
     override val viewModelLifecycle = this
 
     override fun setUpObservers() {
@@ -34,7 +32,7 @@ class ImageSearchFragment : BaseSuperFragment<ImageSearchViewModel>() {
         })
     }
 
-    override fun onViewCreated(view: View, viewModel: ImageSearchViewModel, instance: Bundle?) {
+    override fun onViewCreated(view: View, viewModel: SearchViewModel, instance: Bundle?) {
 
         searchBtn.setOnClickListener {
             mViewModel.queryText.value = keywordTxt.text.toString()

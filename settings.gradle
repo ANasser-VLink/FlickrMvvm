@@ -1,3 +1,6 @@
+include ':features:owner_search'
+include ':features:image_search'
+include ':features'
 include ':basemodel'
 include ':app'
 rootProject.name = "flickrSearchBase"

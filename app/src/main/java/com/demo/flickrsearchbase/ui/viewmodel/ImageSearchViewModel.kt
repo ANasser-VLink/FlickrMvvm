@@ -10,7 +10,7 @@ import com.subwilven.basemodel.project_base.utils.network.Result
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ImageSearchViewModel : BaseViewModel() {
+class SearchViewModel : BaseViewModel() {
     private val repo = Repo()
     private val page = SingleLiveEvent<Int>()
     val queryText= SingleLiveEvent<String>()
