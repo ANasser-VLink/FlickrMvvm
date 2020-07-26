@@ -23,13 +23,13 @@ class Adapter(val mViewModel: ImageSearchViewModel) : BaseAdapter<Photo, Adapter
     inner class ViewHolder(viewGroup: ViewGroup, layoutId: Int) : BaseViewHolder<Photo>(viewGroup, layoutId), View.OnClickListener {
 
         override fun onClick(p0: View?) {
-            mViewModel.onImageClicked.value = true
             mViewModel.ownerId.value = getItem(adapterPosition)?.owner
         }
 
         override fun onBind(item: Photo) {
             val imageUrl = getImageURL(mViewModel.fetchPhoto(adapterPosition))
             searchImg.loadImage(imageUrl)
+            searchImg.setOnClickListener(this)
         }
     }
 

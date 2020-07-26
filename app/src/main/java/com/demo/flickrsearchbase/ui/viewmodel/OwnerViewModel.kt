@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class OwnerViewModel : BaseViewModel() {
     private val repo = Repo()
-    val page = SingleLiveEvent<Int>()
+    private val page = SingleLiveEvent<Int>()
     val ownerId = SingleLiveEvent<String>()
     var photosList: Result<PhotoResponseModel>? = null
     var photosLiveList = SingleLiveEvent<ArrayList<Photo>>()
@@ -28,12 +28,19 @@ class OwnerViewModel : BaseViewModel() {
             // providersList = networkCall(viewId) { repository.getProvidersList() }
             markAsCompleted(listOf(photosList!!))
             oldCount.value = photosLiveList.value?.count()
-            photosLiveList.value?.addAll(photosList!!.value!!.photos.photo)
+            if(photosLiveList.value.isNullOrEmpty())
+                photosLiveList.value = photosList!!.value!!.photos.photo
+            else
+                photosLiveList.value?.addAll(photosList!!.value!!.photos.photo)
 
         }
     }
 
     fun fetchPhoto(index: Int)  : Photo {
         return photosLiveList.value?.get(index)!!
+    }
+
+    fun incrementPage() {
+        page.value = page.value?.plus(1)
     }
 }

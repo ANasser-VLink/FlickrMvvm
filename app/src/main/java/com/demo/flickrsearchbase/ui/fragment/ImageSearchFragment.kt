@@ -27,12 +27,6 @@ class ImageSearchFragment : BaseSuperFragment<ImageSearchViewModel>() {
             mAdapter?.addItems(photos)
         })
 
-        mViewModel.onImageClicked.observe(viewLifecycleOwner, Observer {
-            val bundle = Bundle()
-            bundle.putString(OWNER_KEY, mViewModel.ownerId.value)
-            navigate(OwnerFragment(), bundle)
-        })
-
         mViewModel.ownerId.observe(viewLifecycleOwner, Observer {
             val bundle = Bundle()
             bundle.putString(OWNER_KEY, mViewModel.ownerId.value)

@@ -41,21 +41,17 @@ class OwnerFragment : BaseSuperFragment<OwnerViewModel>() {
         })*/
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val args = arguments
-        mViewModel.ownerId.value = arguments?.getString(OWNER_KEY)
-
-    }
-
     override fun onViewCreated(view: View, viewModel: OwnerViewModel, instance: Bundle?) {
 
+
+        val args = arguments
+        mViewModel.ownerId.value = arguments?.getString(OWNER_KEY)
 
         viewModel.searchPhotos(R.id.searchBtn)
 
         mAdapter = OwnerAdapter(viewModel)
 
-        mRecyclerView = createRecyclerView(mAdapter!!, recyclerViewId = R.id.searchRV)
+        mRecyclerView = createRecyclerView(mAdapter!!, recyclerViewId = R.id.ownerRV)
     }
 
 }

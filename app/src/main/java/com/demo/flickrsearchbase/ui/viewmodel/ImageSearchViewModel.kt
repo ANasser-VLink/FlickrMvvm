@@ -12,11 +12,10 @@ import kotlinx.coroutines.launch
 
 class ImageSearchViewModel : BaseViewModel() {
     private val repo = Repo()
-    val page = SingleLiveEvent<Int>()
+    private val page = SingleLiveEvent<Int>()
     val queryText= SingleLiveEvent<String>()
     var photosList: Result<PhotoResponseModel>? = null
     var photosLiveList = SingleLiveEvent<ArrayList<Photo>>()
-    var onImageClicked = SingleLiveEvent<Boolean>()
     var ownerId = SingleLiveEvent<String>()
     var oldCount = SingleLiveEvent<Int>()
     init {
@@ -34,11 +33,14 @@ class ImageSearchViewModel : BaseViewModel() {
                 photosLiveList.value = photosList!!.value!!.photos.photo
             else
                 photosLiveList.value?.addAll(photosList!!.value!!.photos.photo)
-            Log.v("asdf", photosLiveList.value.toString())
         }
     }
 
     fun fetchPhoto(index: Int)  : Photo {
         return photosLiveList.value?.get(index)!!
+    }
+
+    fun incrementPage() {
+        page.value = page.value?.plus(1)
     }
 }
