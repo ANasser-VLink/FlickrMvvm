@@ -26,7 +26,7 @@ class SearchFragment : BaseSuperFragment<SearchViewModel>() {
         mViewModel.ownerId.observe(viewLifecycleOwner, Observer {
             val args = Bundle()
             args.putString(OWNER_KEY, mViewModel.ownerId.value)
-            this.navigate(OwnerResultsFragment(), args)
+            this.navigate(OwnerResultsFragment(), args, addToBackStack = true)
 //            searchRV.findNavController().navigate(action)
         })
     }

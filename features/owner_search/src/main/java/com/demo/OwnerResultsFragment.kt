@@ -29,7 +29,6 @@ class OwnerResultsFragment : BaseSuperFragment<OwnerResultsViewModel>() {
     override fun onViewCreated(view: View, viewModel: OwnerResultsViewModel, instance: Bundle?) {
 
 
-        val args = arguments
         mViewModel.ownerId.value = arguments?.getString(OWNER_KEY)
 
         viewModel.searchPhotos(R.id.ownerRV)
