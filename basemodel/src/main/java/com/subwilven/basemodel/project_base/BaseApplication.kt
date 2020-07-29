@@ -9,11 +9,17 @@ import android.content.IntentFilter
 import android.content.res.Configuration
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.FragmentManager
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.subwilven.basemodel.project_base.base.boradcast.AlerterReceiver
 import com.subwilven.basemodel.project_base.base.boradcast.ConnectivityReceiver
 import com.subwilven.basemodel.project_base.utils.LocalManager
 import com.subwilven.basemodel.project_base.utils.NotificationManager
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
+import org.koin.dsl.module
 
 
 public open class BaseApplication : Application() {
@@ -53,6 +59,12 @@ public open class BaseApplication : Application() {
         initAlerterBroadcast()
         NotificationManager.initNotificationChannels(this)
 
+        startKoin {
+            androidLogger(Level.DEBUG)
+            androidContext(this@BaseApplication)
+            modules(applicationModule)
+        }
+
     }
 
     private fun initAlerterBroadcast() {
@@ -83,4 +95,8 @@ public open class BaseApplication : Application() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(alerterReceiver!!)
         super.onTerminate()
     }
+}
+
+val applicationModule = module(override = true) {
+    factory { (fragmentManager: FragmentManager) ->  (fragmentManager) }
 }

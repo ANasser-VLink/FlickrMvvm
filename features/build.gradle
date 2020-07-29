@@ -27,7 +27,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(path: ":basemodel")
+    api project(path: ":basemodel")
     implementation project(path: "image_search")
     implementation project(path: "owner_search")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

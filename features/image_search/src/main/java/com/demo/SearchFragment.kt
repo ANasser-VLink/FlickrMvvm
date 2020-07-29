@@ -8,6 +8,8 @@ import com.demo.image_search.R
 import com.subwilven.basemodel.project_base.base.fragments.BaseSuperFragment
 import com.subwilven.basemodel.project_base.views.MyRecyclerView
 import kotlinx.android.synthetic.main.search_fragment.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class SearchFragment : BaseSuperFragment<SearchViewModel>() {
 
@@ -17,6 +19,11 @@ class SearchFragment : BaseSuperFragment<SearchViewModel>() {
     override val layoutId = R.layout.search_fragment
     override val viewModelClass = SearchViewModel::class.java
     override val viewModelLifecycle = this
+    private val listener: NavigatorImpl by inject {
+        val args = arguments
+        arguments?.putString(OWNER_KEY, mViewModel.ownerId.value)
+        parametersOf(activity?.supportFragmentManager, args)
+    }
 
     override fun setUpObservers() {
         mViewModel.photosLiveList.observe(viewLifecycleOwner, Observer { photos ->
@@ -26,7 +33,8 @@ class SearchFragment : BaseSuperFragment<SearchViewModel>() {
         mViewModel.ownerId.observe(viewLifecycleOwner, Observer {
             val args = Bundle()
             args.putString(OWNER_KEY, mViewModel.ownerId.value)
-            this.navigate(OwnerResultsFragment(), args, addToBackStack = true)
+            listener.onBtnClicked()
+
 //            searchRV.findNavController().navigate(action)
         })
     }

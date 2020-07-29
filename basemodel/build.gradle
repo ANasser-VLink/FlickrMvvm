@@ -118,6 +118,11 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Koin
+    api "org.koin:koin-android:2.0.1"
+    api 'org.koin:koin-androidx-viewmodel:2.0.1'
+    api 'org.koin:koin-androidx-scope:2.0.1'
 }
 
 repositories {
