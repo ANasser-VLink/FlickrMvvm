@@ -42,7 +42,6 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ":basemodel")
-    implementation project(path: ":features")
 
 
 }

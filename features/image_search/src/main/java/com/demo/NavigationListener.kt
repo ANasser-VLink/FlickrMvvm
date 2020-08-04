@@ -1,4 +1,4 @@
-package com.demo.flickrsearchbase.utils
+package com.demo
 
 interface NavigationListener {
     fun onBtnClicked(userId:String)

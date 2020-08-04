@@ -59,12 +59,6 @@ public open class BaseApplication : Application() {
         initAlerterBroadcast()
         NotificationManager.initNotificationChannels(this)
 
-        startKoin {
-            androidLogger(Level.DEBUG)
-            androidContext(this@BaseApplication)
-            modules(applicationModule)
-        }
-
     }
 
     private fun initAlerterBroadcast() {
@@ -97,6 +91,3 @@ public open class BaseApplication : Application() {
     }
 }
 
-val applicationModule = module(override = true) {
-    factory { (fragmentManager: FragmentManager) ->  (fragmentManager) }
-}

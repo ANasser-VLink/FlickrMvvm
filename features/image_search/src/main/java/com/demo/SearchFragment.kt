@@ -19,11 +19,10 @@ class SearchFragment : BaseSuperFragment<SearchViewModel>() {
     override val layoutId = R.layout.search_fragment
     override val viewModelClass = SearchViewModel::class.java
     override val viewModelLifecycle = this
-    private val listener: NavigatorImpl by inject {
-        val args = arguments
-        arguments?.putString(OWNER_KEY, mViewModel.ownerId.value)
-        parametersOf(activity?.supportFragmentManager, args)
+    private val listener: NavigationListener by inject {
+        parametersOf(activity?.supportFragmentManager)
     }
+
 
     override fun setUpObservers() {
         mViewModel.photosLiveList.observe(viewLifecycleOwner, Observer { photos ->
@@ -31,9 +30,7 @@ class SearchFragment : BaseSuperFragment<SearchViewModel>() {
         })
 
         mViewModel.ownerId.observe(viewLifecycleOwner, Observer {
-            val args = Bundle()
-            args.putString(OWNER_KEY, mViewModel.ownerId.value)
-            listener.onBtnClicked()
+            listener.onBtnClicked(mViewModel.ownerId.value!!)
 
 //            searchRV.findNavController().navigate(action)
         })
